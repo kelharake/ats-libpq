@@ -1,25 +1,19 @@
 
-INCLUDE += $(shell pkg-config --cflags libpq)
-INCLUDE += $(shell pkg-config --libs libpq)
-INCLUDE += -lgc
+INCLUDE     += $(shell pkg-config --libs libpq)
+INCLUDE 		+= -I $(shell pg_config --includedir-server)
+INCLUDE 		+= -lgc
 
-INCLUDE += -I $(PATSCONTRIB) 
-INCLUDE += -I ../..
-INCLUDE += -I /usr/include/postgresql/server
+INCLUDE 		+= $(patsubst %,-I %,$(subst :, ,$(PATSHOMELOCS)))
+INCLUDE_ATS += $(patsubst %,-IATS %,$(subst :, ,$(PATSHOMELOCS)))
 
-INCLUDE += -IIATS $(PATSCONTRIB)
-INCLUDE += -IIATS ../..
-
+CC=gcc
 PATSCC=patscc
 PATSCC2=$(PATSCC) $(INCLUDE) $(INCLUDE_ATS)
 
-CC=gcc
-CXX=gcc
-
-all: test01.out
+all: test01.out test02.out
 
 %.out: %.dats
-	$(PATSCC) -DATS_MEMALLOC_GCBDW $(INCLUDE) -o $@ $<
+	$(PATSCC2) -DATS_MEMALLOC_GCBDW -o $@ $<
 
 install:
 	cat schema.sql | psql testdb testuser 

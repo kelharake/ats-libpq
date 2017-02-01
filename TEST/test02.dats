@@ -1,7 +1,6 @@
 
 #include "share/atspre_staload.hats"
-staload "../SATS/libpq.sats"
-staload _ = "../DATS/libpq.dats"
+#include "../HATS/all.hats"
 
 implement main0() = let
   val dbconfig = "user=testuser dbname=testdb sslmode=disable"

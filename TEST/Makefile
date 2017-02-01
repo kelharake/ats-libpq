@@ -1,9 +1,9 @@
 
 INCLUDE     += $(shell pkg-config --libs libpq)
-INCLUDE 		+= -I $(shell pg_config --includedir-server)
-INCLUDE 		+= -lgc
+INCLUDE     += -I $(shell pg_config --includedir-server)
+INCLUDE     += -lgc
 
-INCLUDE 		+= $(patsubst %,-I %,$(subst :, ,$(PATSHOMELOCS)))
+INCLUDE     += $(patsubst %,-I %,$(subst :, ,$(PATSHOMELOCS)))
 INCLUDE_ATS += $(patsubst %,-IATS %,$(subst :, ,$(PATSHOMELOCS)))
 
 CC=gcc

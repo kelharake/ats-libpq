@@ -1,0 +1,22 @@
+{
+  "name": "atscntrb-keh-libpq",
+  "version": "0.0.2",
+  "description": "ATS bindings for libpq",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelharake/atscntrb-keh-libpq.git"
+  },
+  "keywords": [
+    "ATS", "libpq"
+  ],
+  "author": "Khalil El-Harake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kelharake/atscntrb-keh-libpq/issues"
+  },
+  "homepage": "https://github.com/kelharake/atscntrb-keh-libpq#readme"
+}
